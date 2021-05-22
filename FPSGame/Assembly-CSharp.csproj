@@ -52,10 +52,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
-     <Compile Include="Assets\Scripts\Input\PlayerInputHandler.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerCharacterController.cs" />
      <Compile Include="Assets\Scripts\Test.cs" />
+     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerCharacterController.cs" />
+     <Compile Include="Assets\Scripts\Input\PlayerInputHandler.cs" />
+     <Compile Include="Assets\Scripts\Weapon\WeaponController.cs" />
+     <Compile Include="Assets\Scripts\Weapon\PlayerWeaponManager.cs" />
  <Reference Include="UnityEngine">
  <HintPath>F:/unity/2020.2.1f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
