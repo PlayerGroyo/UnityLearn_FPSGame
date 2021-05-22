@@ -87,6 +87,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30916ac26d643d094eaf97fe69f95dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  root: {fileID: 3412297941617514772}
+  tip: {fileID: 3412297941276366199}
+  radius: 0.01
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   maxLifeTime: 5
   speed: 300
 --- !u!1001 &3412297942187808586
