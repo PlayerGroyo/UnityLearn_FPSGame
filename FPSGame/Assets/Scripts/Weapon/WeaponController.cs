@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Weapon
 {
@@ -8,12 +9,34 @@ namespace Weapon
     public class WeaponController : MonoBehaviour
     {
         public GameObject weaponRoot;
-
         public bool IsWeaponActive { get; private set; }
-
         public GameObject Owner { get; set; }
-
         public GameObject SourcePrefab { get; set; }
+
+        public float shootInterval;
+        private float _lastShootTime = 0;
+
+        public Transform weaponMuzzlePos;
+        public GameObject muzzleFlashPrefab;
+        private ParticleSystem _muzzleParticle;
+
+
+        #region Unity Event functions
+
+        private void Start()
+        {
+            if (!muzzleFlashPrefab)
+            {
+                Debug.LogWarning("muzzle prefab missing!");
+            }
+            else
+            {
+                _muzzleParticle = Instantiate(muzzleFlashPrefab, weaponMuzzlePos.position, weaponMuzzlePos.rotation,weaponMuzzlePos)
+                    .GetComponent<ParticleSystem>();
+            }
+        }
+
+        #endregion
 
         #region MyFunctions
 
@@ -25,6 +48,38 @@ namespace Weapon
         {
             weaponRoot.SetActive(active);
             IsWeaponActive = active;
+        }
+
+        #endregion
+
+        #region Fire
+
+        public bool HandleShootInput(bool inputHeld)
+        {
+            if (inputHeld)
+            {
+                return TryShoot();
+            }
+
+            return false;
+        }
+
+        private bool TryShoot()
+        {
+            if (_lastShootTime + shootInterval <= Time.time)
+            {
+                HandleShoot();
+                return true;
+            }
+
+            return false;
+        }
+
+        private void HandleShoot()
+        {
+            _muzzleParticle.Play(true);
+
+            _lastShootTime = Time.time;
         }
 
         #endregion

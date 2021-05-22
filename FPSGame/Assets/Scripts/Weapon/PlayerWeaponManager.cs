@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Input;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,12 +12,11 @@ namespace Weapon
     public class PlayerWeaponManager : MonoBehaviour
     {
         public List<WeaponController> startingWeapons = new List<WeaponController>();
-
         public Transform weaponPosition;
-
         public UnityAction<WeaponController> OnSwitchToWeapon;
-
         private WeaponController[] _weaponSlots = new WeaponController[9];
+
+        public WeaponController activeWeapon;
 
 
         #region Unity Event Functions
@@ -33,7 +33,11 @@ namespace Weapon
             SwitchWeapon();
         }
 
-        
+        private void Update()
+        {
+            // TODO : 修改为在输入里调用
+            activeWeapon.HandleShootInput(PlayerInputHandler.Instance.GetFireInputHeld());
+        }
 
         #endregion
 
@@ -80,9 +84,11 @@ namespace Weapon
         {
             if (!weaponController)
             {
+                activeWeapon = null;
                 return;
             }
-            
+
+            activeWeapon = weaponController;
             weaponController.ShowWeapon(true);
         }
         

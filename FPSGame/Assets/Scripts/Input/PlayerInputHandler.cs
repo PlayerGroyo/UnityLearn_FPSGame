@@ -7,6 +7,7 @@ namespace Input
 
         public static PlayerInputHandler Instance { get; private set; }
 
+        [Header("mouse settings")]
         public float mouseXSensitivity = 10f;
         public float mouseYSensitivity = 10f;
         public bool mouseXInverse;
@@ -31,6 +32,8 @@ namespace Input
             Cursor.visible = false;
         }
 
+        #region Movement
+
         /// <summary>
         /// 获取玩家的移动输入
         /// </summary>
@@ -54,5 +57,16 @@ namespace Input
             
             return new Vector2(mouseX*mouseXSensitivity, mouseY*mouseYSensitivity);
         }
+
+        #endregion
+
+        #region Gun Fire
+
+        public bool GetFireInputHeld()
+        {
+            return UnityEngine.Input.GetButton("Fire");
+        }
+
+        #endregion
     }
 }

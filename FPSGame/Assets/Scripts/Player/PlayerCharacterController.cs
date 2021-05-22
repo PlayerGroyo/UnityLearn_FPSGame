@@ -16,15 +16,13 @@ namespace Player
         public float maxSpeedOnGround = 8f;
         public float moveSharpnessOnGround = 15f;
         public float cameraHeightRatio = 0.9f;
-
+        private float _characterHeight = 1.8f;
+        
         [Header("组件")] 
         private CharacterController _characterController;
         private PlayerInputHandler _inputHandler;
 
-        private float _characterHeight = 1.8f;
-
         public Vector3 CharacterVelocity { get; set; }
-
         private float _cameraAngle;
 
 
