@@ -16,6 +16,11 @@ namespace Weapon
 
         private ProjectileBase _projectileBase;
         private Vector3 _velocity;
+        
+        //impact VFX
+        public GameObject impactVFX;
+        private float _vfxLifeTime = 5f;
+        private float _vfxSpawnOffset = 0.1f;
 
         #region Unity Event Functions
 
@@ -65,13 +70,20 @@ namespace Weapon
                     closestHit.normal = -transform.forward;
                 }
 
-                OnHit();
+                OnHit(closestHit.point,closestHit.normal);
             }
         }
 
-        private void OnHit()
+        private void OnHit(Vector3 point,Vector3 normal)
         {
-            print("hit");
+            if (impactVFX)
+            {
+                GameObject vfxInstance = Instantiate(impactVFX,
+                    point + normal * _vfxSpawnOffset,
+                    Quaternion.LookRotation(normal));
+                
+                Destroy(vfxInstance,_vfxLifeTime);
+            }
             Destroy(gameObject);
         }
 

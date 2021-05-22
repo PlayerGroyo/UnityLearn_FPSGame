@@ -95,6 +95,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   maxLifeTime: 5
   speed: 300
+  impactVFX: {fileID: 7655095426451682942, guid: b44155a491834754482508226b37b2d2, type: 3}
 --- !u!1001 &3412297942187808586
 PrefabInstance:
   m_ObjectHideFlags: 0
