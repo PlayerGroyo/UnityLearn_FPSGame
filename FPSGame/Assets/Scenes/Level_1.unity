@@ -4340,3 +4340,4 @@ MonoBehaviour:
   startingWeapons:
   - {fileID: 2382591860727580373, guid: 251d82a6ecefc5e45bfc7ac3697189c1, type: 3}
   weaponPosition: {fileID: 2063780959}
+  activeWeapon: {fileID: 0}

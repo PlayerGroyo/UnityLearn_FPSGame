@@ -110,6 +110,7 @@ MonoBehaviour:
   shootInterval: 0.2
   weaponMuzzlePos: {fileID: 5957738190619788700}
   muzzleFlashPrefab: {fileID: 6060935667144873308, guid: 633222868c31065429be4f5819739dee, type: 3}
+  projectileBase: {fileID: 6593414778691930753, guid: 6797a5e3d913ef741aa8a0880f44a305, type: 3}
 --- !u!1001 &7684838589895843235
 PrefabInstance:
   m_ObjectHideFlags: 0

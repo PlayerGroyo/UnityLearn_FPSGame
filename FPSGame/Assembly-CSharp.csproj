@@ -58,6 +58,8 @@
      <Compile Include="Assets\Scripts\Input\PlayerInputHandler.cs" />
      <Compile Include="Assets\Scripts\Weapon\WeaponController.cs" />
      <Compile Include="Assets\Scripts\Weapon\PlayerWeaponManager.cs" />
+     <Compile Include="Assets\Scripts\Weapon\ProjectileBase.cs" />
+     <Compile Include="Assets\Scripts\Weapon\ProjectileStandard.cs" />
  <Reference Include="UnityEngine">
  <HintPath>F:/unity/2020.2.1f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

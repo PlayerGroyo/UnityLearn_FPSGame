@@ -20,6 +20,10 @@ namespace Weapon
         public GameObject muzzleFlashPrefab;
         private ParticleSystem _muzzleParticle;
 
+        public Vector3 MuzzleWorldVelocity { get; private set; }
+
+        public ProjectileBase projectileBase;
+
 
         #region Unity Event functions
 
@@ -38,7 +42,7 @@ namespace Weapon
 
         #endregion
 
-        #region MyFunctions
+        #region wenpon show
 
         /// <summary>
         /// show or hide weapon
@@ -77,6 +81,15 @@ namespace Weapon
 
         private void HandleShoot()
         {
+            if (projectileBase)
+            {
+                Vector3 shootDirection = weaponMuzzlePos.forward;
+                ProjectileBase newProjectileBase =
+                    Instantiate(projectileBase, weaponMuzzlePos.position, weaponMuzzlePos.rotation)
+                        .GetComponent<ProjectileBase>();
+                
+                newProjectileBase.Shoot(this);
+            }
             _muzzleParticle.Play(true);
 
             _lastShootTime = Time.time;
